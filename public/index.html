@@ -16,14 +16,25 @@
             <h1 class="mdl-layout-title page_title">Tomb of Sargeras raid race!</h1>
         </div>
 
-        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" ng-controller="raiders">
-            <tr >
-                <th class="mdl-data-table__cell--non-numeric" ng-repeat="header in headers">{{header}}</th>
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" ng-controller="raidController">
+            <tr>
+                <th class="mdl-data-table__cell--non-numeric" ng-repeat="header in headers">
+                    {{header}}
+                </th>
             </tr>
             <tr ng-repeat="raider in raiders">
                 <td class="mdl-data-table__cell--non-numeric">{{raider.Name}}</td>
                 <td class="mdl-data-table__cell--non-numeric">{{raider.Guild}}</td>
                 <td class="mdl-data-table__cell--non-numeric">{{raider.Region}}</td>
+                <td class="mdl-data-table__cell--non-numeric">{{raider.goroth}}</td>
+                <td class="mdl-data-table__cell--non-numeric">{{raider.demonic}}</td>
+                <td class="mdl-data-table__cell--non-numeric">{{raider.harjatan}}</td>
+                <td class="mdl-data-table__cell--non-numeric">{{raider.sisters}}</td>
+                <td class="mdl-data-table__cell--non-numeric">{{raider.mistress}}</td>
+                <td class="mdl-data-table__cell--non-numeric">{{raider.host}}</td>
+                <td class="mdl-data-table__cell--non-numeric">{{raider.maiden}}</td>
+                <td class="mdl-data-table__cell--non-numeric">{{raider.avatar}}</td>
+                <td class="mdl-data-table__cell--non-numeric">{{raider.kj}}</td>
             </tr>
         </table>
     </div>
