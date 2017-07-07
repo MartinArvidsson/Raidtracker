@@ -1,7 +1,17 @@
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
-node_modules
+
+
+#GIT STUFF
+/node_modules
+npm-debug.log
+.DS_Store
+/*.env
+
+#GIT STUFF
+
+
 # Folder config file
 Desktop.ini
 
