@@ -26,14 +26,15 @@ app.controller('raidController', ['$scope', '$http', 'apiService', function ($sc
     ];
 
     $scope.headers = [
+        " ",
         "Name",
         "Guild",
         "Region",
         "Goroth",
         "Demonic Duo",
         "Harjatan",
-        "Sisters",
         "Mistress",
+        "Sisters",
         "Host",
         "Maiden",
         "Avatar",
@@ -41,44 +42,50 @@ app.controller('raidController', ['$scope', '$http', 'apiService', function ($sc
         "Total kills:"
     ];
 
-    $scope.mythicKills = [];
-
     $scope.calcKills = function (responseData) {
         const playerAch = responseData.achievements.achievementsCompleted;
         for (var i = 0; i < $scope.raiders.length; i++) {
-            console.log(responseData.name)
             if (responseData.name === $scope.raiders[i].Character) {
-
+                console.log(responseData);
+                $scope.raiders[i]["thumbnail"] = responseData.thumbnail;
                 if (playerAch.includes(11767)) {
                     $scope.raiders[i]["goroth"] = true;
+                    $scope.raiders[i]["totalkills"] = 1;
                 }
                 if (playerAch.includes(11774)) {
                     $scope.raiders[i]["demonic"] = true;
+                    $scope.raiders[i].totalkills += 1;
                 }
                 if (playerAch.includes(11775)) {
                     $scope.raiders[i]["harjatan"] = true;
+                    $scope.raiders[i].totalkills += 1;
                 }
                 if (playerAch.includes(11776)) {
-                    $scope.raiders[i]["sisters"] = true;
+                    $scope.raiders[i]["mistress"] = true;
+                    $scope.raiders[i].totalkills += 1;
                 }
                 if (playerAch.includes(11777)) {
-                    $scope.raiders[i]["mistress"] = true;
+                    $scope.raiders[i]["sisters"] = true;
+                    $scope.raiders[i].totalkills += 1;
                 }
                 if (playerAch.includes(11778)) {
                     $scope.raiders[i]["host"] = true;
+                    $scope.raiders[i].totalkills += 1;
                 }
                 if (playerAch.includes(11779)) {
                     $scope.raiders[i]["maiden"] = true;
+                    $scope.raiders[i].totalkills += 1;
                 }
                 if (playerAch.includes(11780)) {
                     $scope.raiders[i]["avatar"] = true;
+                    $scope.raiders[i].totalkills += 1;
                 }
                 if (playerAch.includes(11781)) {
                     $scope.raiders[i]["kj"] = true;
+                    $scope.raiders[i].totalkills += 1;
                 }
             }
         }
-        console.log($scope.raiders);
     };
 
     const init = function () {
