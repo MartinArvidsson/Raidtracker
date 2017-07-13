@@ -8,7 +8,7 @@ app.controller('raidController', ['$scope', '$http', 'apiService', function ($sc
         { Name: "Brenwyn", Character: "Brenwyn", Guild: "Solaris", Region: "EU", Realm: "Ragnaros" },
         { Name: "Nerves", Character: "Neerves", Guild: "Solaris", Region: "EU", Realm: "Ragnaros" },
         { Name: "Proximitynz", Character: "Proximitynz", Guild: "One", Region: "US", Realm: "Frostmourne" },
-        { Name: "Daarshan", Character: "Daarshan", Guild: "Club Camel", Region: "US", Realm: "Stormrage" },
+        { Name: "Daarshan", Character: "Daarshan", Guild: "Happy Accidents", Region: "US", Realm: "Area-52" },
         { Name: "Hula", Character: "Hulamom", Guild: "Happy Accidents", Region: "US", Realm: "Area-52" },
         { Name: "Moofz", Character: "Moofz", Guild: "Happy Accidents", Region: "US", Realm: "Area-52" },
         { Name: "Dal", Character: "Delcenti", Guild: "Death Jesters", Region: "US", Realm: "Stormrage" },
