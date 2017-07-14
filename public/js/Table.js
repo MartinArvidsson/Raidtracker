@@ -1,6 +1,8 @@
 'use strict'
 const app = angular.module('myApp', []);
 const _mythicKills = {};
+var achievementsCompletedTimestamp;
+var achievementsCompleted;
 
 app.controller('raidController', ['$scope', '$http', 'apiService', function ($scope, $http, apiService) {
     $scope.raiders = [
@@ -33,8 +35,8 @@ app.controller('raidController', ['$scope', '$http', 'apiService', function ($sc
         "Goroth",
         "Demonic Duo",
         "Harjatan",
-        "Mistress",
         "Sisters",
+        "Mistress",
         "Host",
         "Maiden",
         "Avatar",
@@ -43,50 +45,63 @@ app.controller('raidController', ['$scope', '$http', 'apiService', function ($sc
     ];
 
     $scope.calcKills = function (responseData) {
-        const playerAch = responseData.achievements.achievementsCompleted;
+        achievementsCompleted = responseData.achievements.achievementsCompleted;
+        achievementsCompletedTimestamp = responseData.achievements.achievementsCompletedTimestamp;
         for (var i = 0; i < $scope.raiders.length; i++) {
             if (responseData.name === $scope.raiders[i].Character) {
-                console.log(responseData);
-                $scope.raiders[i]["thumbnail"] = responseData.thumbnail;
-                if (playerAch.includes(11767)) {
-                    $scope.raiders[i]["goroth"] = true;
+                $scope.raiders[i]["totalkills"] = 0;
+
+                if (achievementsCompleted.includes(11767)) {
+                    console.log(getAchivementDate(11767));
+                    $scope.raiders[i]["goroth"] = getAchivementDate(11767);
                     $scope.raiders[i]["totalkills"] = 1;
                 }
-                if (playerAch.includes(11774)) {
-                    $scope.raiders[i]["demonic"] = true;
+                if (achievementsCompleted.includes(11774)) {
+                    $scope.raiders[i]["demonic"] = getAchivementDate(11774);
                     $scope.raiders[i].totalkills += 1;
                 }
-                if (playerAch.includes(11775)) {
-                    $scope.raiders[i]["harjatan"] = true;
+                if (achievementsCompleted.includes(11775)) {
+                    $scope.raiders[i]["harjatan"] = getAchivementDate(11775);
                     $scope.raiders[i].totalkills += 1;
                 }
-                if (playerAch.includes(11776)) {
-                    $scope.raiders[i]["mistress"] = true;
+                if (achievementsCompleted.includes(11776)) {
+                    $scope.raiders[i]["mistress"] = getAchivementDate(11776);
                     $scope.raiders[i].totalkills += 1;
                 }
-                if (playerAch.includes(11777)) {
-                    $scope.raiders[i]["sisters"] = true;
+                if (achievementsCompleted.includes(11777)) {
+                    $scope.raiders[i]["sisters"] = getAchivementDate(11777);
                     $scope.raiders[i].totalkills += 1;
                 }
-                if (playerAch.includes(11778)) {
-                    $scope.raiders[i]["host"] = true;
+                if (achievementsCompleted.includes(11778)) {
+                    $scope.raiders[i]["host"] = getAchivementDate(11778);
                     $scope.raiders[i].totalkills += 1;
                 }
-                if (playerAch.includes(11779)) {
-                    $scope.raiders[i]["maiden"] = true;
+                if (achievementsCompleted.includes(11779)) {
+                    $scope.raiders[i]["maiden"] = getAchivementDate(11779);
                     $scope.raiders[i].totalkills += 1;
                 }
-                if (playerAch.includes(11780)) {
-                    $scope.raiders[i]["avatar"] = true;
+                if (achievementsCompleted.includes(11780)) {
+                    $scope.raiders[i]["avatar"] = getAchivementDate(11780);
                     $scope.raiders[i].totalkills += 1;
+                    
                 }
-                if (playerAch.includes(11781)) {
-                    $scope.raiders[i]["kj"] = true;
+                if (achievementsCompleted.includes(11781)) {
+                    $scope.raiders[i]["kj"] = getAchivementDate(11781);
                     $scope.raiders[i].totalkills += 1;
                 }
             }
         }
     };
+
+    const getAchivementDate = function(achivementID){
+        var regex = /(..[A-z]\s[0-9].)/;
+        var pos = achievementsCompleted.indexOf(achivementID);
+                    var dateOfKill = achievementsCompletedTimestamp[pos];
+                    var date = new Date(dateOfKill);
+                    var dateToString = date.toString();
+                    var dateValue = dateToString.match(regex);
+                    return dateValue[0];
+    }
 
     const init = function () {
         for (var i = 0; i < $scope.raiders.length; i++) {
