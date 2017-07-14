@@ -52,7 +52,6 @@ app.controller('raidController', ['$scope', '$http', 'apiService', function ($sc
                 $scope.raiders[i]["totalkills"] = 0;
 
                 if (achievementsCompleted.includes(11767)) {
-                    console.log(getAchivementDate(11767));
                     $scope.raiders[i]["goroth"] = getAchivementDate(11767);
                     $scope.raiders[i]["totalkills"] = 1;
                 }
