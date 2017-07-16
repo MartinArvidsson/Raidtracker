@@ -15,7 +15,7 @@ app.controller('raidController', ['$scope', '$http', 'apiService', function ($sc
         { Name: "Moofz", Character: "Moofz", Guild: "Happy Accidents", Region: "US", Realm: "Area-52" },
         { Name: "Dal", Character: "Delcenti", Guild: "Death Jesters", Region: "US", Realm: "Stormrage" },
         { Name: "Bananbrus", Character: "Bananbrus", Guild: "Familiar With Drama", Region: "EU", Realm: "Ravencrest" },
-        { Name: "Ghost", Character: "Ghosteld", Guild: "Lol guildless", Region: "EU", Realm: "Sunstrider" },
+        { Name: "Ghost", Character: "Ghosteld", Guild: "Relax", Region: "EU", Realm: "Tarren-Mill" },
         { Name: "Putro", Character: "Putrohunt", Guild: "Phoenix", Region: "EU", Realm: "Silvermoon" },
         { Name: "Wobberc", Character: "Wobberc", Guild: "Phoenix", Region: "EU", Realm: "Silvermoon" },
         { Name: "Artiks", Character: "Artiks", Guild: "Phoenix", Region: "EU", Realm: "Silvermoon" },
